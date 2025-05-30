@@ -1,0 +1,780 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: sans-serif;
+}
+
+/* 
+  CSS Variables for Theme Colors 
+*/
+:root {
+    --bg-color: #080808;
+    --second-bg-color: #131313;
+    --text-color: white;
+    --main-color: #00ffee;
+}
+
+/* 
+  Set base font size and prevent horizontal overflow 
+*/
+html{
+    font-size: 60%;
+    overflow-x: hidden;
+}
+
+/* 
+  Body Background and Text Color 
+*/
+body{
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* 
+  Header Styles 
+  - Fixed position, blur background, horizontal flex layout, spacing, stacking order
+*/
+.header {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 6rem;
+    padding: 0 2vw;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 1000;
+    gap: 1.5rem;
+    box-shadow: 0 2px 24px 0 rgba(0,255,238,0.06);
+    transition: none !important; /* Prevent hiding on scroll */
+}
+
+/*
+  Profile Image Circle in Navbar
+  - Flex container for the profile image at the left side of the navbar/header
+  - Ensures the image is round and centered
+*/
+
+
+/*
+  Profile image itself
+  - Fills the circle, remains round, uses object-fit to avoid distortion
+*/
+.navbar-profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+/* 
+  Logo Styles 
+  - Large, bold, with hover effect and glowing span for last name 
+*/
+.logo{
+    font-size: 2.3rem;
+    color: var(--text-color);
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.logo:hover{
+    transform: scale(1.1);
+}
+.logo span{
+    text-shadow: 0 0 25px var(--main-color);
+    color: var(--main-color);
+}
+
+/* 
+  Navbar Styles 
+  - Flex row, item spacing, color transitions, underline on hover/active 
+*/
+.navbar {
+    display: flex;
+    align-items: center;
+}
+.navbar a{
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-left: 2rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+.navbar a:hover,
+.navbar a.active{
+    color: var(--main-color);
+    border-bottom: 3px solid var(--main-color);
+}
+
+
+
+.header {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    min-width: 0;
+    height: 6rem;
+    padding: 0 2vw;
+    background: rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 1000;
+    gap: 1.5rem;
+    box-shadow: 0 2px 24px 0 rgba(0,255,238,0.07);
+    transition: none !important; /* Prevent hiding on scroll */
+}
+
+/* Prevent any JS from hiding the navbar on scroll */
+@media (max-width: 700px) {
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        min-width: 0;
+        height: 6rem;
+        padding: 0 2vw;
+        background: rgba(0, 0, 0, 0.92);
+        z-index: 1000;
+        box-shadow: 0 2px 24px 0 rgba(0,255,238,0.07);
+        transition: none !important;
+    }
+    body {
+        padding-top: 6rem !important;
+    }
+    /* Navbar menu styling for mobile */
+    .navbar {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        position: absolute;
+        top: 6rem;
+        left: 0;
+        width: 100%;
+        min-width: 0;
+        background: rgba(12, 12, 12, 0.99);
+        box-shadow: 0 8px 32px #000a;
+        padding: 1rem 0.5rem;
+        z-index: 999;
+        border-radius: 0 0 14px 14px;
+    }
+    .navbar.active {
+        display: flex;
+    }
+    .navbar a {
+        font-size: 1.3rem;
+        padding: 1.2rem 1rem;
+        width: 100%;
+        margin: 0;
+        text-align: center;
+        border-bottom: 1px solid rgba(0,255,238,0.07);
+    }
+    .navbar a:last-child {
+        border-bottom: none;
+    }
+    /* Hamburger icon (menu) always visible */
+    #menu-icon {
+        display: block;
+        font-size: 2.5rem;
+        cursor: pointer;
+        color: var(--main-color);
+        margin-left: auto;
+        z-index: 1001;
+    }
+    /* Profile pic and logo shrink */
+    .navbar-profile-pic {
+        width: 36px;
+        height: 36px;
+        margin-right: 0.7rem;
+    }
+    .logo {
+        font-size: 1.4rem;
+    }
+}
+
+/* Ensure menu always visible and no JS hides header */
+@media (max-width: 700px) {
+    html {
+        scroll-padding-top: 6rem;
+    }
+
+    /* Center home section */
+    .home {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+        padding: 0 2vw;
+        text-align: center;
+        min-height: 100vh;
+    }
+    .home-content {
+        align-items: center;
+        text-align: center;
+        margin-top: 1.5rem;
+        width: 100%;
+    }
+    .home-content h1 {
+        font-size: 2.6rem;
+        margin-top: 0.5rem;
+        letter-spacing: 0.05em;
+        font-weight: 700;
+    }
+    .home-content h3,
+    .text-animation {
+        font-size: 1.5rem;
+        margin-top: 0.7rem;
+        margin-bottom: 1.2rem;
+    }
+    .home-content p {
+        font-size: 1.1rem;
+        margin-bottom: 1.2rem;
+    }
+    .btn-group {
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 1rem;
+    }
+    .btn {
+        font-size: 1.2rem;
+        padding: 0.7rem 2.2rem;
+    }
+    /* Center home-image */
+    .home-image {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin: 0 auto;
+    }
+    .home-image img {
+        width: 60vw;
+        max-width: 180px;
+        min-width: 100px;
+        margin: 0 auto;
+        top: 0.5rem;
+        border-radius: 12px;
+    }
+    /* Center about section */
+    .about-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2.3rem;
+    }
+    .about-image img {
+        margin: 0 auto;
+    }
+    .about-content {
+        align-items: center;
+        text-align: center;
+    }
+    /* Center heading */
+    .heading {
+        font-size: 2.4rem;
+        text-align: center;
+        margin: 3rem 0 2rem 0;
+        width: 100%;
+    }
+    /* Center section content */
+    section {
+        padding: 6rem 3vw 5rem 3vw;
+        min-height: unset;
+    }
+}
+
+
+/* 
+  Section and Home Layout
+  - Padding, alignment, spacing for main content
+*/
+section{
+    min-height: 100vh;
+    padding: 10rem 12% 10rem;
+}
+.home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15rem;
+}
+.home-content{
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    text-align: left;
+    justify-content: center;
+    margin-top: 3rem;
+}
+span{
+    color: var(--main-color);
+}
+.home-content h3{
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    font-size: 3.5rem;
+}
+.home-content h1{
+    font-size: 7rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    line-height: 1;
+}
+.home image{
+    border-radius: 10%;
+}
+.home-image img{
+    position: relative;
+    top: 3rem;
+    width: 32vw;
+    border-radius: 10%;
+    box-shadow: 0 0 25px var(--main-color);
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+}
+.home-image img:hover{
+    box-shadow: 0 0 25px var(--main-color),
+                0 0 25px var(--main-color),
+                0 0 25px var(--main-color);
+}
+.home-content p{
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.8;
+    max-width: 1000px;
+}
+
+/* 
+  Button Styles
+  - Rounded, glowing, interactive transitions
+*/
+.btn{
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    background: var(--main-color);
+    box-shadow: 0 0 25px var(--main-color);
+    border-radius: 4rem;
+    font-size: 1.6rem;
+    color: black;
+    border: 2px solid transparent;
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+.btn:hover {
+    transform: scale(1.0s);
+    box-shadow: 0 0 50px var(--main-color);
+}
+.btn-group{
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    margin-top: 2rem;
+}
+.btn-group a:nth-of-type(2){
+    background-color: black;
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
+    box-shadow: 0 0 25px transparent;
+}
+.btn-group a:nth-of-type(2):hover{
+    box-shadow: 0 0 25px var(--main-color);
+    background-color: var(--main-color);
+    color: black;
+}
+
+/* 
+  Animated Text Styles 
+  - Animated job titles using keyframes (see @keyframes below)
+*/
+.text-animation {
+    font-size: 34px;
+    font-weight: 600;
+    min-width: 650px;    /* ensure no wrapping */
+    margin-bottom: 4rem; /* enough space for long job titles */
+}
+.text-animation span{
+    position: relative;
+}
+.text-animation span::before{
+    content: "Graphic Artist";
+    color: var(--main-color);
+    animation: words 20s infinite;
+}
+.text-animation span::after{
+    content: "";
+    background-color: var(--bg-color);
+    position: absolute;
+    width: calc(100% + 8px);
+    height: 100%;
+    border-left: 3px solid var(--bg-color);
+    right: -8px;
+    animation: cursor 0.6s infinite, typing 20s steps(14) infinite;
+}
+
+/* 
+  Keyframes for animated text cursor and words
+*/
+@keyframes cursor{
+    to{
+        border-left: 2px solid var(--main-color);
+    }
+}
+@keyframes words {
+    0%, 20%{
+        content: "Graphic Designer";
+    }
+    21%, 40%{
+        content: "Graphic Artist";
+    }
+    41%, 60%{
+        content: "Advertising / Marketing Designer";
+    }
+    61%, 80%{
+        content: "Graphic Artist";
+    }
+    81%, 100%{
+        content: "Photoshop / Illustrator Designer";
+    }
+}
+@keyframes typing{
+    10%, 15%, 30%, 35%, 50%, 55%, 70%, 75%, 90%, 95%{
+        width: 0;
+    }
+    5%, 20%, 25%, 40%, 45%, 60%, 65%, 80%, 85%{
+        width: calc(100% + 8px);
+    }
+}
+
+/* 
+  Headings 
+*/
+.heading{
+    font-size: 8rem;
+    text-align: center;
+    margin: 5rem 0;
+}
+
+/* 
+  Custom Scrollbar Styles
+*/
+::-webkit-scrollbar{
+    width: 15px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: var(--main-color);
+}
+::-webkit-scrollbar-track{
+    background-color: var(--bg-color);
+}
+
+/* ... previous CSS ... */
+
+/* About Section */
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-top: 4rem;
+    flex-wrap: wrap;
+}
+.about-image img {
+    width: 220px;
+    border-radius: 20px;
+    box-shadow: 0 0 25px var(--main-color);
+}
+.about-content {
+    max-width: 600px;
+}
+.about-content h3 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+}
+.about-content p {
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+}
+.about-content ul {
+    font-size: 1.3rem;
+    line-height: 1.7;
+    margin-left: 1.3rem;
+    padding-left: 1rem;
+}
+
+/* Services Section */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-top: 4rem;
+}
+.service-card {
+    background: var(--second-bg-color);
+    border-radius: 18px;
+    padding: 2.2rem 1.8rem;
+    text-align: center;
+    box-shadow: 0 0 18px rgba(0,255,238,0.12);
+    transition: 0.3s;
+}
+.service-card i {
+    font-size: 3.5rem;
+    color: var(--main-color);
+    margin-bottom: 1.2rem;
+}
+.service-card h3 {
+    font-size: 2.1rem;
+    margin-bottom: 0.7rem;
+}
+.service-card p {
+    font-size: 1.2rem;
+    color: #e0e0e0;
+}
+.service-card:hover {
+    box-shadow: 0 0 32px var(--main-color);
+    transform: translateY(-8px) scale(1.03);
+}
+
+/* Gallery Section */
+/* ...existing CSS... */
+
+/* Gallery Section */
+@media (max-width: 700px) {
+    body {
+        padding-top: 6rem !important;
+    }
+}
+
+/* =======================
+   Gallery Boxes: Narrower on Mobile and Centered
+   ======================= */
+@media (max-width: 700px) {
+    .gallery-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        width: 100%;
+    }
+    .gallery-item {
+        width: 92vw !important;
+        max-width: 320px !important;
+        min-width: 0;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        box-sizing: border-box;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .gallery-item img {
+        width: 98%; /* slight margin inside card */
+        max-width: 300px;
+        height: auto;
+        object-fit: cover;
+        margin-bottom: 0.7rem;
+    }
+    .gallery-item h4,
+    .gallery-item p {
+        width: 100%;
+        text-align: center;
+    }
+    .gallery-modal-content {
+        padding: 0.8rem;
+        max-width: 98vw;
+    }
+    .gallery-modal-content img {
+        max-width: 94vw;
+        max-height: 48vh;
+    }   
+}
+
+/* =======================
+   Desktop Gallery for Consistency
+   ======================= */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+    justify-items: center;
+    width: 100%;
+}
+.gallery-item {
+    background: var(--second-bg-color);
+    border-radius: 16px;
+    padding: 1.2rem 1.2rem 1.8rem 1.2rem;
+    text-align: center;
+    box-shadow: 0 0 18px rgba(0,255,238,0.10);
+    transition: 0.3s, box-shadow 0.3s;
+    width: 260px;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+.gallery-item img {
+    width: 100%;
+    max-width: 220px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 0.7rem;
+    box-shadow: 0 0 12px var(--main-color);
+    transition: transform 0.3s;
+}
+.gallery-item h4,
+.gallery-item p {
+    width: 100%;
+    text-align: center;
+    font-size: 1.05rem;
+}
+/* Modal Overlay for Enlarged Gallery Image */
+.gallery-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(12, 12, 12, 0.89);
+    justify-content: center;
+    align-items: center;
+}
+.gallery-modal.active {
+    display: flex;
+}
+.gallery-modal-content {
+    background: var(--second-bg-color);
+    padding: 2rem;
+    border-radius: 18px;
+    box-shadow: 0 0 50px var(--main-color);
+    max-width: 90vw;
+    max-height: 90vh;
+    text-align: center;
+    position: relative;
+}
+.gallery-modal-content img {
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+    max-height: 65vh;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 0 24px var(--main-color);
+    background: #222;
+}
+.gallery-modal-content h4 {
+    color: var(--main-color);
+    margin-top: 1.2rem;
+    font-size: 1.5rem;
+}
+.gallery-modal-close {
+    position: absolute;
+    top: 10px;
+    right: 18px;
+    font-size: 2.8rem;
+    color: var(--main-color);
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    transition: color 0.2s;
+}
+.gallery-modal-close:hover {
+    color: #fff;
+}
+/* Contact Section */
+/* ...existing CSS... */
+
+/* Contact Info Styles */
+.contact-info {
+    max-width: 450px;
+    margin: 3rem auto 0 auto;
+    background: var(--second-bg-color);
+    border-radius: 18px;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.8rem;
+    box-shadow: 0 0 18px rgba(0,255,238,0.15);
+    align-items: flex-start;
+}
+
+.contact-info-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    font-size: 2rem;                /* Increased font size for readability */
+    color: var(--main-color);
+    font-weight: 500;               /* Make text a bit bolder */
+    letter-spacing: 0.03em;         /* Subtle spacing for clarity */
+    line-height: 1.5;
+    margin-left: 0.2rem;
+}
+
+.contact-info-item i {
+    font-size: 2.4rem;             /* Slightly larger icon */
+    color: var(--main-color);
+}
+
+.contact-info-item span {
+    font-weight: 700;
+    color: var(--text-color);
+    font-size: 2rem;
+    margin-right: 0.5rem;
+}
+
+.contact-info-item p {
+    color: var(--main-color);
+    text-decoration: underline;
+    font-size: 2rem;
+    transition: color 0.2s;
+    word-break: break-all;
+    font-weight: 500;
+}
+
+.contact-info-item a:hover {
+    color: #fff;
+}
+
+/* Responsive for contact-info */
+@media (max-width: 700px) {
+    .contact-info {
+        padding: 1.3rem 0.7rem;
+        font-size: 1.3rem;
+        gap: 2rem;
+    }
+    .contact-info-item {
+        font-size: 1.35rem;
+    }
+    .contact-info-item i {
+        font-size: 1.6rem;
+    }
+    .contact-info-item span,
+    .contact-info-item a {
+        font-size: 1.35rem;
+    }
+}
