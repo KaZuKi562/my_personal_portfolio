@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webpage</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <!-- Header section with profile picture, logo,and navigation links -->
+    <header class="header">
+        
+        <a href="" class="logo">John Paulo <span>Nuñez</span></a>
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <nav class="navbar" id="nav-links">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    
+    <!-- Main home section with greeting, animated job title, contact button, and profile image -->
+    <section class="home" id="home">
+        <div class="home-content">
+            <h1>Hi, I'm <span>John</span></h1>
+            <h3 class="text-animation">I'm a <span></span></h3>
+            <div class="btn-group">
+                <a href="#contact" class="btn">Contact</a>
+            </div>
+        </div>
+        <div class="home-image">
+            <img src="user/profile.jpg.jpg" alt="">
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2 class="heading">About <span>Me</span></h2>
+        <div class="about-container">
+            <div class="about-image">
+                <img src="about.jpg" alt="About John">
+            </div>
+            <div class="about-content">
+                <h3>Who am I?</h3>
+                <p>
+                    I'm John a Graphic Designer, specialize in digital design, I provide innovate design and offer a unique and original ideas based on the needs of my client, Ensuring my clients are satisfied is my top priority.
+                </p>
+                <ul>
+                    <li><b>Skills:</b> Photoshop, Illustrator, InDesign, Branding, Marketing Design</li>
+                    <li><b>Experience:</b> 1 year experience in freelancing</li>
+                    <li><b>Location:</b> Pampanga, Philippines</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <h2 class="heading"><span>Services</span> Offered</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class='bx bx-palette'></i>
+                <h3>Graphic Design</h3>
+                <p>Custom graphics for brands, events, and marketing—logos, posters, social media assets, and more.</p>
+            </div>
+            <div class="service-card">
+                <i class='bx bx-briefcase-alt-2'></i>
+                <h3>Branding</h3>
+                <p>Complete branding solutions: logo design, business cards, brand guidelines, and visual identity systems.</p>
+            </div>
+            <div class="service-card">
+                <i class='bx bx-bulb'></i>
+                <h3>Advertising Design</h3>
+                <p>Eye-catching ads for print, digital, and social media, tailored to target your audience.</p>
+            </div>
+            <div class="service-card">
+                <i class='bx bx-camera'></i>
+                <h3>Photo Editing</h3>
+                <p>Professional photo retouching, manipulation, and enhancement for personal and commercial use.</p>
+            </div>
+        </div>
+    </section>
+
+<!-- ...existing HTML... -->
+
+<!-- Gallery Section -->
+<section class="gallery" id="gallery">
+    <h2 class="heading">Project <span>Gallery</span></h2>
+    <div class="gallery-grid">
+        <div class="gallery-item" data-img="mockup2.jpg" data-title="3D Mockup Design.">
+            <img src="mockup2.jpg" alt="3D Mockup Design.">
+            <h4>3D Mockup Design.</h4>
+            <p>This is a non-commercial project created for portfolio purposes only</p>
+        </div>
+        <div class="gallery-item" data-img="POSTER-01.jpg" data-title="Social Media Compain">
+            <img src="POSTER-01.jpg" alt="Social Media Compain">
+            <h4>Social Media Compain</h4>
+            <p>This is a non-commercial project created for portfolio purposes only</p>
+        </div>
+        <div class="gallery-item" data-img="fanta.jpg" data-title="Product Manipulation">
+            <img src="fanta.jpg" alt="Product Manipulation">
+            <h4>Product Manipulation</h4>
+            <p>This is a non-commercial project created for portfolio purposes only</p>
+        </div>
+        <div class="gallery-item" data-img="artboard 1-01.jpg" data-title="Logo Design">
+            <img src="artboard 1-01.jpg" alt="Logo Design">
+            <h4>Logo Design</h4>
+            <p>This is a non-commercial project created for portfolio purposes only</p>
+        </div>
+        <!-- Add more items as needed -->
+    </div>
+    <!-- Modal for larger image -->
+    <div class="gallery-modal" id="galleryModal">
+        <div class="gallery-modal-content">
+            <button class="gallery-modal-close" id="closeModalBtn" aria-label="Close">&times;</button>
+            <img id="modalImg" src="" alt="">
+            <h4 id="modalTitle"></h4>
+        </div>
+    </div>
+</section>
+<!-- ...existing HTML... -->
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="heading"><span>Contact</span> Me</h2>
+        <div class="contact-info">
+            <div class="contact-info-item">
+                <i class='bx bx-envelope'></i>
+                <span>Email:</span> 
+                <p>johnpaulonunez829@gmail.com</p>
+            </div>
+            <div class="contact-info-item">
+                <i class='bx bx-phone'></i>
+                <span>Phone:</span>
+                <p>+63 919 375 3802</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2025 John Paulo Nuñez. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
